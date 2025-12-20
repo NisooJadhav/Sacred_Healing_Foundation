@@ -1,107 +1,299 @@
 "use client";
-
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import Marquee from "react-fast-marquee";
 
 const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "Courses", href: "/courses" },
-  { name: "Store", href: "/store" },
-  { name: "Consult", href: "/consult" },
-  { name: "About", href: "/about" },
-  { name: "Contact", href: "/contact" },
+  { 
+    name: "Home", 
+    href: "/",
+    hasDropdown: false
+  },
+  { 
+    name: "Store", 
+    href: "/store",
+    hasDropdown: false
+  },
+  { 
+    name: "Reiki", 
+    href: "/reiki",
+    hasDropdown: true,
+    dropdownItems: [
+      { name: "Usui Reiki Level 1 & 2", href: "/reiki/level-1-2" },
+      { name: "Usui Reiki Level 3a & 3b", href: "/reiki/level-3" },
+      { name: "Usui Reiki Grandmaster", href: "/reiki/grandmaster" },
+      { name: "Reiki Grandmaster (Level 1 to GM)", href: "/reiki/complete" },
+      { name: "Money Reiki", href: "/reiki/money" },
+      { name: "Karuna Reiki", href: "/reiki/karuna" },
+      { name: "Ancestral Family Reiki Healing", href: "/reiki/ancestral" },
+    ],
+    image: "/reiki.png",
+    description: "Energy healing modalities"
+  },
+  { 
+    name: "Healing", 
+    href: "/healing",
+    hasDropdown: true,
+    dropdownItems: [
+      { name: "Crystal Healing Therapy", href: "/healing/crystal" },
+      { name: "EFT Therapy", href: "/healing/eft" },
+      { name: "Akashic Record", href: "/healing/akashic" },
+      { name: "Healing with RHF", href: "/healing/rhf" },
+      { name: "What We Cure", href: "/healing/cure" },
+      { name: "How We Cure", href: "/healing/process" },
+    ],
+    image: "/healing.png",
+    description: "Holistic healing therapies"
+  },
+  { 
+    name: "Transformation", 
+    href: "/transformation",
+    hasDropdown: true,
+    dropdownItems: [
+      { name: "Psychic Therapy", href: "/transformation/psychic" },
+      { name: "Tarot Card Reading", href: "/transformation/tarot" },
+      { name: "Osho Zen Tarot Card Reading", href: "/transformation/osho-tarot" },
+      { name: "Osho Zen Tarot", href: "/transformation/osho-zen" },
+      { name: "Gratitude Practices", href: "/transformation/gratitude" },
+    ],
+    image: "/transformation.jpg",
+    description: "Transform your life"
+  },
+  { 
+    name: "About", 
+    href: "/about",
+    hasDropdown: true,
+    dropdownItems: [
+      { name: "About Poonam Thore", href: "/about/poonam" },
+      { name: "Testimonials", href: "/about/testimonials" },
+      { name: "Healing Temple", href: "/about/temple" },
+      { name: "FAQ's", href: "/about/faqs" },
+    ],
+    image: "/poonam-profile.jpg",
+    description: "Reiki Grand Master"
+  },
+  { 
+    name: "Contact", 
+    href: "/contact",
+    hasDropdown: false
+  },
 ];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-
+  const [activeDropdown, setActiveDropdown] = useState(null);
+  const [mobileDropdown, setMobileDropdown] = useState(null);
+  
   return (
-    <header className="sticky top-0 z-50 bg-lotus-bg/90 backdrop-blur-xl border-b border-lotus-purple/10">
-      <nav className="mx-auto max-w-7xl px-6">
-        <div className="flex h-20 items-center justify-between">
-          
-          {/* LEFT: LOGO */}
-          <Link href="/" className="flex items-center gap-3">
-            <div className="relative h-12 w-36">
-              <Image
-                src="/logo.png"
-                alt="Sacred Healing Foundation"
-                fill
-                className="object-contain"
-                priority
-              />
-            </div>
-          </Link>
+    <>
+      {/* MARQUEE */}
+      <div className="bg-lotus-purple h-8 flex items-center overflow-hidden">
+        <Marquee speed={50} gradient={false}>
+          <span className="text-white text-sm font-medium mx-6">
+            Sacred Healing Foundation ~ Poonam Thore
+          </span>
+          <span className="text-yellow-200 text-sm font-semibold mx-8">
+            ॥ श्री कृष्ण शरणम् ॥
+          </span>
+          <span className="text-white text-sm font-medium mx-6">
+            Sacred Healing Foundation ~ Poonam Thore
+          </span>
+          <span className="text-yellow-200 text-sm font-semibold mx-8">
+            ॥ श्री कृष्ण शरणम् ॥ 
+          </span>
+          <span className="text-white text-sm font-medium mx-6">
+            Sacred Healing Foundation ~ Poonam Thore
+          </span>
+          <span className="text-yellow-200 text-sm font-semibold mx-8">
+            ॥ श्री कृष्ण शरणम् ॥ 
+          </span>
+          <span className="text-white text-sm font-medium mx-6">
+            Sacred Healing Foundation ~ Poonam Thore
+          </span>
+          <span className="text-yellow-200 text-sm font-semibold mx-8">
+            ॥ श्री कृष्ण शरणम् ॥ 
+          </span>
+        </Marquee>
+      </div>
 
-          {/* CENTER: LINKS (DESKTOP) */}
-          <div className="hidden lg:flex items-center gap-10">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="relative text-lotus-text font-medium tracking-wide transition-all duration-300
-                after:absolute after:left-0 after:-bottom-2 after:h-[2px] after:w-0 after:bg-lotus-gold
-                after:transition-all after:duration-300 hover:after:w-full hover:text-lotus-purple"
-              >
-                {link.name}
-              </Link>
-            ))}
-          </div>
-
-          {/* RIGHT: CTA */}
-          <div className="hidden lg:flex">
-            <Link
-              href="/consult"
-              className="rounded-full bg-gradient-to-r from-lotus-pink to-lotus-purple
-              px-6 py-3 text-white font-semibold tracking-wide shadow-sacred
-              transition-all duration-300 hover:scale-105 hover:shadow-xl"
-            >
-              Book Consultation
+      {/* NAVBAR */}
+      <header className="sticky top-0 z-25 bg-white/95 backdrop-blur-xl border-b border-purple-100 shadow-sm">
+        <nav className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="flex h-20 items-center justify-between">
+            
+            {/* LEFT: LOGO */}
+            <Link href="/" className="flex items-center gap-3 flex-shrink-0 -ml-8">
+              <div className="relative h-14 w-48 sm:h-16 sm:w-56">
+                <Image
+                  src="/logo.png"
+                  alt="Sacred Healing Foundation"
+                  fill
+                  className="object-contain"
+                  priority
+                />
+              </div>
             </Link>
-          </div>
-
-          {/* MOBILE MENU BUTTON */}
-          <button
-            className="lg:hidden text-lotus-purple"
-            onClick={() => setOpen(!open)}
-          >
-            <span className="sr-only">Toggle menu</span>
-            <div className="space-y-1">
-              <span className="block h-0.5 w-6 bg-lotus-purple"></span>
-              <span className="block h-0.5 w-6 bg-lotus-purple"></span>
-              <span className="block h-0.5 w-6 bg-lotus-purple"></span>
-            </div>
-          </button>
-        </div>
-
-        {/* MOBILE MENU */}
-        {open && (
-          <div className="lg:hidden pb-6 pt-2 animate-in slide-in-from-top duration-300">
-            <div className="flex flex-col gap-4 rounded-2xl bg-lotus-section p-6 shadow-sacred">
+            
+            {/* CENTER: LINKS (DESKTOP) */}
+            <div className="hidden lg:flex items-center gap-8 xl:gap-10">
               {navLinks.map((link) => (
-                <Link
+                <div
                   key={link.name}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="text-lotus-text font-medium hover:text-lotus-purple transition"
+                  className="relative"
+                  onMouseEnter={() => link.hasDropdown && setActiveDropdown(link.name)}
+                  onMouseLeave={() => setActiveDropdown(null)}
                 >
-                  {link.name}
-                </Link>
+                  <Link
+                    href={link.href}
+                    className="relative text-gray-700 font-semibold tracking-wide transition-all duration-300
+                    after:absolute after:left-0 after:-bottom-2 after:h-[2px] after:w-0 after:bg-gradient-to-r 
+                    after:from-lotus-pink after:to-purple-600 after:transition-all after:duration-300 
+                    hover:after:w-full hover:text-purple-600 flex items-center gap-1"
+                  >
+                    {link.name}
+                    {link.hasDropdown && (
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    )}
+                  </Link>
+                  
+                  {/* DROPDOWN MENU */}
+                  {link.hasDropdown && activeDropdown === link.name && (
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 animate-in fade-in slide-in-from-top-2 duration-200">
+                      <div className="bg-white rounded-2xl shadow-2xl border border-purple-100 overflow-hidden min-w-[500px]">
+                        <div className="flex">
+                          {/* Left side - Links */}
+                          <div className="flex-1 p-4">
+                            <h3 className="text-sm font-bold text-purple-600 uppercase tracking-wider mb-4">
+                              {link.description}
+                            </h3>
+                            <div className="space-y-2">
+                              {link.dropdownItems.map((item) => (
+                                <Link
+                                  key={item.name}
+                                  href={item.href}
+                                  className="block px-4 py-2.5 text-gray-700 hover:text-purple-600 
+                                  hover:bg-purple-50 rounded-lg transition-all duration-200 font-medium"
+                                >
+                                  {item.name}
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                          
+                          {/* Right side - Image */}
+                          <div className="w-48 bg-gradient-to-br from-purple-100 to-pink-100 flex items-center justify-center">
+                            <div className="relative w-full h-full overflow-hidden shadow-lg">
+                              <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-pink-600/20"></div>
+                              <div className="absolute inset-0 flex items-center justify-center text-purple-600 font-semibold text-sm text-center">
+                                <Image
+                                src={link.image}  // Link image path
+                                alt={link.name}    // Alt text for accessibility
+                                layout="fill"      // Make the image fill the container
+                                objectFit="cover"  // Ensure the image covers the container area
+                                className="object-cover"  // Ensures the image resizes properly without distortion
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
               ))}
-
+            </div>
+            
+            {/* RIGHT: CTA */}
+            <div className="hidden lg:flex flex-shrink-0">
               <Link
                 href="/consult"
-                onClick={() => setOpen(false)}
-                className="mt-4 text-center rounded-full bg-gradient-to-r from-lotus-pink to-lotus-purple
-                px-6 py-3 text-white font-semibold shadow-sacred"
+                className="rounded-full bg-gradient-to-r from-lotus-pink to-lotus-purple
+                px-6 py-3 text-white font-bold tracking-wide shadow-lg
+                transition-all duration-300 hover:scale-105 hover:shadow-xl"
               >
                 Book Consultation
               </Link>
             </div>
+            
+            {/* MOBILE MENU BUTTON */}
+            <button
+              className="lg:hidden text-purple-600 p-2"
+              onClick={() => setOpen(!open)}
+              aria-label="Toggle menu"
+            >
+              <div className="space-y-1.5">
+                <span className={`block h-0.5 w-6 bg-purple-600 transition-all duration-300 ${open ? 'rotate-45 translate-y-2' : ''}`}></span>
+                <span className={`block h-0.5 w-6 bg-purple-600 transition-all duration-300 ${open ? 'opacity-0' : ''}`}></span>
+                <span className={`block h-0.5 w-6 bg-purple-600 transition-all duration-300 ${open ? '-rotate-45 -translate-y-2' : ''}`}></span>
+              </div>
+            </button>
           </div>
-        )}
-      </nav>
-    </header>
+          
+          {/* MOBILE MENU */}
+          {open && (
+            <div className="lg:hidden pb-6 pt-2 animate-in slide-in-from-top duration-300">
+              <div className="flex flex-col gap-2 rounded-2xl bg-gradient-to-br from-purple-50 to-pink-50 p-4 shadow-xl border border-purple-100">
+                {navLinks.map((link) => (
+                  <div key={link.name}>
+                    <div className="flex items-center justify-between">
+                      <Link
+                        href={link.href}
+                        onClick={() => !link.hasDropdown && setOpen(false)}
+                        className="flex-1 text-gray-700 font-semibold hover:text-purple-600 transition px-4 py-3"
+                      >
+                        {link.name}
+                      </Link>
+                      {link.hasDropdown && (
+                        <button
+                          onClick={() => setMobileDropdown(mobileDropdown === link.name ? null : link.name)}
+                          className="p-3 text-purple-600"
+                        >
+                          <svg 
+                            className={`w-5 h-5 transition-transform duration-200 ${mobileDropdown === link.name ? 'rotate-180' : ''}`} 
+                            fill="none" 
+                            stroke="currentColor" 
+                            viewBox="0 0 24 24"
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </button>
+                      )}
+                    </div>
+                    
+                    {/* Mobile Dropdown */}
+                    {link.hasDropdown && mobileDropdown === link.name && (
+                      <div className="ml-4 mt-2 space-y-1 animate-in slide-in-from-top duration-200">
+                        {link.dropdownItems.map((item) => (
+                          <Link
+                            key={item.name}
+                            href={item.href}
+                            onClick={() => setOpen(false)}
+                            className="block px-4 py-2.5 text-sm text-gray-600 hover:text-purple-600 
+                            hover:bg-white rounded-lg transition-all"
+                          >
+                            {item.name}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
+                <Link
+                  href="/consult"
+                  onClick={() => setOpen(false)}
+                  className="mt-4 text-center rounded-full bg-gradient-to-r from-pink-500 to-purple-600
+                  px-6 py-3 text-white font-bold shadow-lg hover:shadow-xl transition-all"
+                >
+                  Book Consultation
+                </Link>
+              </div>
+            </div>
+          )}
+        </nav>
+      </header>
+    </>
   );
 }
