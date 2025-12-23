@@ -45,7 +45,7 @@ export default function Footer() {
 
   return (
     <>
-        <footer className="bottom-0 fixed w-full bg-lotus-purple text-white">
+        <footer className="w-full bg-lotus-purple text-white">
         <div className="mx-auto max-w-7xl py-12">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-6">
             {/* LOGO & INFO - Takes 2 columns on large screens */}
@@ -191,15 +191,15 @@ export default function Footer() {
             </div>
             </div>
         </div>
-        </footer>
-        <div className="fixed bottom-0 w-full text-center py-2.5 bg-black text-white">
-        <p className="text-sm">
-            Made with ❤️ by{" "}
-            <a href="https://aviorta.com/" target="_blank" rel="noreferrer">
-            Avoirta LLC
-            </a>
-        </p>
-        </div>
+                <div className="mt-6 text-center py-3 bg-black text-white">
+                    <p className="text-sm">
+                        Made with ❤️ by {" "}
+                        <a href="https://aviorta.com/" target="_blank" rel="noreferrer">
+                            Avoirta LLC
+                        </a>
+                    </p>
+                </div>
+                </footer>
     </>
   );
 }

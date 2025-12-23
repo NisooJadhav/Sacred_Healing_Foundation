@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import Marquee from "react-fast-marquee";
+import { useCart } from "../context/CartContext";
 
 const navLinks = [
   { 
@@ -13,6 +14,11 @@ const navLinks = [
   { 
     name: "Store", 
     href: "/store",
+    hasDropdown: false
+  },
+  { 
+    name: "Cart",
+    href: "/cart",
     hasDropdown: false
   },
   { 
@@ -84,6 +90,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
+  const { items } = useCart();
   
   return (
     <>
@@ -156,6 +163,11 @@ export default function Navbar() {
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                       </svg>
+                    )}
+                    {link.name === "Cart" && (
+                      <span className="ml-2 inline-flex items-center justify-center px-2 py-0.5 rounded-full text-xs font-semibold bg-[var(--color-lotus-gold)] text-white">
+                        {items.length}
+                      </span>
                     )}
                   </Link>
                   
@@ -244,6 +256,11 @@ export default function Navbar() {
                         className="flex-1 text-gray-700 font-semibold hover:text-purple-600 transition px-4 py-3"
                       >
                         {link.name}
+                        {link.name === "Cart" && (
+                          <span className="ml-2 inline-flex items-center justify-center px-2 py-0.5 rounded-full text-xs font-semibold bg-[var(--color-lotus-gold)] text-white">
+                            {items.length}
+                          </span>
+                        )}
                       </Link>
                       {link.hasDropdown && (
                         <button

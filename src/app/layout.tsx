@@ -5,6 +5,7 @@ import Nav from "../app/components/Nav";
 import Footer from "../app/components/Footer";
 import Whatsapp from "../app/components/Whatsapp";
 import BrochureModal from "../app/components/BrochureModal";
+import { CartProvider } from "./context/CartContext";
 
 export const metadata: Metadata = {
   title: "Sacred Healing Foundation ~ Poonam Thore",
@@ -30,11 +31,13 @@ export default function RootLayout({
         </style>
       </head>
       <body>
-        <BrochureModal />
-        <Nav />
-        <main>{children}</main>
-        <Whatsapp />
-        <Footer />
+        <CartProvider>
+          <BrochureModal />
+          <Nav />
+          <main>{children}</main>
+          <Whatsapp />
+          <Footer />
+        </CartProvider>
       </body>
     </html>
   );
