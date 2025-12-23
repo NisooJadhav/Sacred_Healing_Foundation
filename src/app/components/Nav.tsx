@@ -78,12 +78,12 @@ const navLinks = [
     href: "/contact",
     hasDropdown: false
   },
-];
+] as const;
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState(null);
-  const [mobileDropdown, setMobileDropdown] = useState(null);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
   
   return (
     <>
@@ -160,7 +160,7 @@ export default function Navbar() {
                   </Link>
                   
                   {/* DROPDOWN MENU */}
-                  {link.hasDropdown && activeDropdown === link.name && (
+                  {link.hasDropdown && activeDropdown === link.name && link.dropdownItems && (
                     <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 animate-in fade-in slide-in-from-top-2 duration-200">
                       <div className="bg-white rounded-2xl shadow-2xl border border-purple-100 overflow-hidden min-w-[500px]">
                         <div className="flex">
@@ -184,20 +184,19 @@ export default function Navbar() {
                           </div>
                           
                           {/* Right side - Image */}
-                          <div className="w-48 bg-gradient-to-br from-purple-100 to-pink-100 flex items-center justify-center">
-                            <div className="relative w-full h-full overflow-hidden shadow-lg">
-                              <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-pink-600/20"></div>
-                              <div className="absolute inset-0 flex items-center justify-center text-purple-600 font-semibold text-sm text-center">
+                          {link.image && (
+                            <div className="w-48 bg-gradient-to-br from-purple-100 to-pink-100 flex items-center justify-center">
+                              <div className="relative w-full h-full overflow-hidden shadow-lg">
+                                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-pink-600/20"></div>
                                 <Image
-                                src={link.image}  // Link image path
-                                alt={link.name}    // Alt text for accessibility
-                                layout="fill"      // Make the image fill the container
-                                objectFit="cover"  // Ensure the image covers the container area
-                                className="object-cover"  // Ensures the image resizes properly without distortion
+                                  src={link.image}
+                                  alt={link.name}
+                                  fill
+                                  className="object-cover"
                                 />
                               </div>
                             </div>
-                          </div>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -264,7 +263,7 @@ export default function Navbar() {
                     </div>
                     
                     {/* Mobile Dropdown */}
-                    {link.hasDropdown && mobileDropdown === link.name && (
+                    {link.hasDropdown && mobileDropdown === link.name && link.dropdownItems && (
                       <div className="ml-4 mt-2 space-y-1 animate-in slide-in-from-top duration-200">
                         {link.dropdownItems.map((item) => (
                           <Link
