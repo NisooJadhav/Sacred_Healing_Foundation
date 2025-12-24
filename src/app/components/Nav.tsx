@@ -12,16 +12,6 @@ const navLinks = [
     hasDropdown: false,
   },
   {
-    name: "Store",
-    href: "/store",
-    hasDropdown: false,
-  },
-  {
-    name: "Cart",
-    href: "/cart",
-    hasDropdown: false,
-  },
-  {
     name: "Reiki",
     href: "/reiki",
     hasDropdown: true,
@@ -87,6 +77,17 @@ const navLinks = [
     href: "/contact",
     hasDropdown: false,
   },
+
+  {
+    name: "Store",
+    href: "/store",
+    hasDropdown: false,
+  },
+  {
+    name: "Cart",
+    href: "/cart",
+    hasDropdown: false,
+  },
 ] as const;
 
 export default function Navbar() {
@@ -128,9 +129,9 @@ export default function Navbar() {
       </div>
 
       {/* NAVBAR */}
-      <header className="sticky top-0 z-25 bg-white/95 backdrop-blur-xl border-b border-purple-100 shadow-sm">
-        <nav className="mx-auto max-w-7xl px-4 sm:px-6">
-          <div className="flex h-20 items-center justify-between">
+      <header className="sticky top-0 z-25 bg-white backdrop-blur-xl border-b border-purple-100 shadow-sm">
+        <nav className="max-w-8xl">
+          <div className="pl-15 flex h-20 items-center justify-between">
             {/* LEFT: LOGO */}
             <Link
               href="/"
@@ -237,7 +238,7 @@ export default function Navbar() {
             </div>
 
             {/* RIGHT: CTA */}
-            <div className="hidden lg:flex flex-shrink-0">
+            <div className="hidden lg:flex flex-shrink-0 pr-10">
               <Link
                 href="/consult"
                 className="rounded-full bg-gradient-to-r from-lotus-pink to-lotus-purple
