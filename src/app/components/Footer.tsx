@@ -45,7 +45,7 @@ export default function Footer() {
 
   return (
     <>
-        <footer className="bottom-0 fixed w-full bg-lotus-purple text-white">
+        <footer className="mt-[100vh] bottom-0 w-full bg-lotus-purple text-white">
         <div className="mx-auto max-w-7xl py-12">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-6">
             {/* LOGO & INFO - Takes 2 columns on large screens */}
