@@ -11,9 +11,9 @@ export const metadata: Metadata = {
   title: "Sacred Healing Foundation ~ Poonam Thore",
   description: "A foundation dedicated to holistic healing and wellness.",
   icons: {
-    icon: '/icon.ico',
-    shortcut: '/icon.ico',
-    apple: '/icon.ico',
+    icon: "/icon.ico",
+    shortcut: "/icon.ico",
+    apple: "/icon.ico",
   },
 };
 
@@ -27,7 +27,8 @@ export default function RootLayout({
       <head>
         {/* <link rel="icon" href="/icon.png" type="image/png" /> */}
         <style>
-        @import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+          @import
+          url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap');
         </style>
       </head>
       <body>

@@ -6,23 +6,23 @@ import Marquee from "react-fast-marquee";
 import { useCart } from "../context/CartContext";
 
 const navLinks = [
-  { 
-    name: "Home", 
+  {
+    name: "Home",
     href: "/",
-    hasDropdown: false
+    hasDropdown: false,
   },
-  { 
-    name: "Store", 
+  {
+    name: "Store",
     href: "/store",
-    hasDropdown: false
+    hasDropdown: false,
   },
-  { 
+  {
     name: "Cart",
     href: "/cart",
-    hasDropdown: false
+    hasDropdown: false,
   },
-  { 
-    name: "Reiki", 
+  {
+    name: "Reiki",
     href: "/reiki",
     hasDropdown: true,
     dropdownItems: [
@@ -35,10 +35,10 @@ const navLinks = [
       { name: "Ancestral Family Reiki Healing", href: "/reiki/ancestral" },
     ],
     image: "/reiki.png",
-    description: "Energy healing modalities"
+    description: "Energy healing modalities",
   },
-  { 
-    name: "Healing", 
+  {
+    name: "Healing",
     href: "/healing",
     hasDropdown: true,
     dropdownItems: [
@@ -50,24 +50,27 @@ const navLinks = [
       { name: "How We Cure", href: "/healing/process" },
     ],
     image: "/healing.png",
-    description: "Holistic healing therapies"
+    description: "Holistic healing therapies",
   },
-  { 
-    name: "Transformation", 
+  {
+    name: "Transformation",
     href: "/transformation",
     hasDropdown: true,
     dropdownItems: [
       { name: "Psychic Therapy", href: "/transformation/psychic" },
       { name: "Tarot Card Reading", href: "/transformation/tarot" },
-      { name: "Osho Zen Tarot Card Reading", href: "/transformation/osho-tarot" },
+      {
+        name: "Osho Zen Tarot Card Reading",
+        href: "/transformation/osho-tarot",
+      },
       { name: "Osho Zen Tarot", href: "/transformation/osho-zen" },
       { name: "Gratitude Practices", href: "/transformation/gratitude" },
     ],
     image: "/transformation.jpg",
-    description: "Transform your life"
+    description: "Transform your life",
   },
-  { 
-    name: "About", 
+  {
+    name: "About",
     href: "/about",
     hasDropdown: true,
     dropdownItems: [
@@ -77,12 +80,12 @@ const navLinks = [
       { name: "FAQ's", href: "/about/faqs" },
     ],
     image: "/poonam-profile.jpg",
-    description: "Reiki Grand Master"
+    description: "Reiki Grand Master",
   },
-  { 
-    name: "Contact", 
+  {
+    name: "Contact",
     href: "/contact",
-    hasDropdown: false
+    hasDropdown: false,
   },
 ] as const;
 
@@ -91,7 +94,7 @@ export default function Navbar() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
   const { items } = useCart();
-  
+
   return (
     <>
       {/* MARQUEE */}
@@ -107,19 +110,19 @@ export default function Navbar() {
             Sacred Healing Foundation ~ Poonam Thore
           </span>
           <span className="text-yellow-200 text-sm font-semibold mx-8">
-            ॥ श्री कृष्ण शरणम् ॥ 
+            ॥ श्री कृष्ण शरणम् ॥
           </span>
           <span className="text-white text-sm font-medium mx-6">
             Sacred Healing Foundation ~ Poonam Thore
           </span>
           <span className="text-yellow-200 text-sm font-semibold mx-8">
-            ॥ श्री कृष्ण शरणम् ॥ 
+            ॥ श्री कृष्ण शरणम् ॥
           </span>
           <span className="text-white text-sm font-medium mx-6">
             Sacred Healing Foundation ~ Poonam Thore
           </span>
           <span className="text-yellow-200 text-sm font-semibold mx-8">
-            ॥ श्री कृष्ण शरणम् ॥ 
+            ॥ श्री कृष्ण शरणम् ॥
           </span>
         </Marquee>
       </div>
@@ -128,9 +131,11 @@ export default function Navbar() {
       <header className="sticky top-0 z-25 bg-white/95 backdrop-blur-xl border-b border-purple-100 shadow-sm">
         <nav className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="flex h-20 items-center justify-between">
-            
             {/* LEFT: LOGO */}
-            <Link href="/" className="flex items-center gap-3 flex-shrink-0 -ml-8">
+            <Link
+              href="/"
+              className="flex items-center gap-3 flex-shrink-0 -ml-8"
+            >
               <div className="relative h-14 w-48 sm:h-16 sm:w-56">
                 <Image
                   src="/logo.png"
@@ -141,14 +146,16 @@ export default function Navbar() {
                 />
               </div>
             </Link>
-            
+
             {/* CENTER: LINKS (DESKTOP) */}
             <div className="hidden lg:flex items-center gap-8 xl:gap-10">
               {navLinks.map((link) => (
                 <div
                   key={link.name}
                   className="relative"
-                  onMouseEnter={() => link.hasDropdown && setActiveDropdown(link.name)}
+                  onMouseEnter={() =>
+                    link.hasDropdown && setActiveDropdown(link.name)
+                  }
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
                   <Link
@@ -160,8 +167,18 @@ export default function Navbar() {
                   >
                     {link.name}
                     {link.hasDropdown && (
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      <svg
+                        className="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
                       </svg>
                     )}
                     {link.name === "Cart" && (
@@ -170,53 +187,55 @@ export default function Navbar() {
                       </span>
                     )}
                   </Link>
-                  
+
                   {/* DROPDOWN MENU */}
-                  {link.hasDropdown && activeDropdown === link.name && link.dropdownItems && (
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 animate-in fade-in slide-in-from-top-2 duration-200">
-                      <div className="bg-white rounded-2xl shadow-2xl border border-purple-100 overflow-hidden min-w-[500px]">
-                        <div className="flex">
-                          {/* Left side - Links */}
-                          <div className="flex-1 p-4">
-                            <h3 className="text-sm font-bold text-purple-600 uppercase tracking-wider mb-4">
-                              {link.description}
-                            </h3>
-                            <div className="space-y-2">
-                              {link.dropdownItems.map((item) => (
-                                <Link
-                                  key={item.name}
-                                  href={item.href}
-                                  className="block px-4 py-2.5 text-gray-700 hover:text-purple-600 
+                  {link.hasDropdown &&
+                    activeDropdown === link.name &&
+                    link.dropdownItems && (
+                      <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 animate-in fade-in slide-in-from-top-2 duration-200">
+                        <div className="bg-white rounded-2xl shadow-2xl border border-purple-100 overflow-hidden min-w-[500px]">
+                          <div className="flex">
+                            {/* Left side - Links */}
+                            <div className="flex-1 p-4">
+                              <h3 className="text-sm font-bold text-purple-600 uppercase tracking-wider mb-4">
+                                {link.description}
+                              </h3>
+                              <div className="space-y-2">
+                                {link.dropdownItems.map((item) => (
+                                  <Link
+                                    key={item.name}
+                                    href={item.href}
+                                    className="block px-4 py-2.5 text-gray-700 hover:text-purple-600 
                                   hover:bg-purple-50 rounded-lg transition-all duration-200 font-medium"
-                                >
-                                  {item.name}
-                                </Link>
-                              ))}
-                            </div>
-                          </div>
-                          
-                          {/* Right side - Image */}
-                          {link.image && (
-                            <div className="w-48 bg-gradient-to-br from-purple-100 to-pink-100 flex items-center justify-center">
-                              <div className="relative w-full h-full overflow-hidden shadow-lg">
-                                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-pink-600/20"></div>
-                                <Image
-                                  src={link.image}
-                                  alt={link.name}
-                                  fill
-                                  className="object-cover"
-                                />
+                                  >
+                                    {item.name}
+                                  </Link>
+                                ))}
                               </div>
                             </div>
-                          )}
+
+                            {/* Right side - Image */}
+                            {link.image && (
+                              <div className="w-48 bg-gradient-to-br from-purple-100 to-pink-100 flex items-center justify-center">
+                                <div className="relative w-full h-full overflow-hidden shadow-lg">
+                                  <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-pink-600/20"></div>
+                                  <Image
+                                    src={link.image}
+                                    alt={link.name}
+                                    fill
+                                    className="object-cover"
+                                  />
+                                </div>
+                              </div>
+                            )}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  )}
+                    )}
                 </div>
               ))}
             </div>
-            
+
             {/* RIGHT: CTA */}
             <div className="hidden lg:flex flex-shrink-0">
               <Link
@@ -228,7 +247,7 @@ export default function Navbar() {
                 Book Consultation
               </Link>
             </div>
-            
+
             {/* MOBILE MENU BUTTON */}
             <button
               className="lg:hidden text-purple-600 p-2"
@@ -236,13 +255,25 @@ export default function Navbar() {
               aria-label="Toggle menu"
             >
               <div className="space-y-1.5">
-                <span className={`block h-0.5 w-6 bg-purple-600 transition-all duration-300 ${open ? 'rotate-45 translate-y-2' : ''}`}></span>
-                <span className={`block h-0.5 w-6 bg-purple-600 transition-all duration-300 ${open ? 'opacity-0' : ''}`}></span>
-                <span className={`block h-0.5 w-6 bg-purple-600 transition-all duration-300 ${open ? '-rotate-45 -translate-y-2' : ''}`}></span>
+                <span
+                  className={`block h-0.5 w-6 bg-purple-600 transition-all duration-300 ${
+                    open ? "rotate-45 translate-y-2" : ""
+                  }`}
+                ></span>
+                <span
+                  className={`block h-0.5 w-6 bg-purple-600 transition-all duration-300 ${
+                    open ? "opacity-0" : ""
+                  }`}
+                ></span>
+                <span
+                  className={`block h-0.5 w-6 bg-purple-600 transition-all duration-300 ${
+                    open ? "-rotate-45 -translate-y-2" : ""
+                  }`}
+                ></span>
               </div>
             </button>
           </div>
-          
+
           {/* MOBILE MENU */}
           {open && (
             <div className="lg:hidden pb-6 pt-2 animate-in slide-in-from-top duration-300">
@@ -264,37 +295,50 @@ export default function Navbar() {
                       </Link>
                       {link.hasDropdown && (
                         <button
-                          onClick={() => setMobileDropdown(mobileDropdown === link.name ? null : link.name)}
+                          onClick={() =>
+                            setMobileDropdown(
+                              mobileDropdown === link.name ? null : link.name
+                            )
+                          }
                           className="p-3 text-purple-600"
                         >
-                          <svg 
-                            className={`w-5 h-5 transition-transform duration-200 ${mobileDropdown === link.name ? 'rotate-180' : ''}`} 
-                            fill="none" 
-                            stroke="currentColor" 
+                          <svg
+                            className={`w-5 h-5 transition-transform duration-200 ${
+                              mobileDropdown === link.name ? "rotate-180" : ""
+                            }`}
+                            fill="none"
+                            stroke="currentColor"
                             viewBox="0 0 24 24"
                           >
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M19 9l-7 7-7-7"
+                            />
                           </svg>
                         </button>
                       )}
                     </div>
-                    
+
                     {/* Mobile Dropdown */}
-                    {link.hasDropdown && mobileDropdown === link.name && link.dropdownItems && (
-                      <div className="ml-4 mt-2 space-y-1 animate-in slide-in-from-top duration-200">
-                        {link.dropdownItems.map((item) => (
-                          <Link
-                            key={item.name}
-                            href={item.href}
-                            onClick={() => setOpen(false)}
-                            className="block px-4 py-2.5 text-sm text-gray-600 hover:text-purple-600 
+                    {link.hasDropdown &&
+                      mobileDropdown === link.name &&
+                      link.dropdownItems && (
+                        <div className="ml-4 mt-2 space-y-1 animate-in slide-in-from-top duration-200">
+                          {link.dropdownItems.map((item) => (
+                            <Link
+                              key={item.name}
+                              href={item.href}
+                              onClick={() => setOpen(false)}
+                              className="block px-4 py-2.5 text-sm text-gray-600 hover:text-purple-600 
                             hover:bg-white rounded-lg transition-all"
-                          >
-                            {item.name}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
+                            >
+                              {item.name}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
                   </div>
                 ))}
                 <Link
