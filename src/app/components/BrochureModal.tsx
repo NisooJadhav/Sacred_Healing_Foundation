@@ -21,7 +21,7 @@ const BrochureModal = () => {
       onClick={closeModal} // outside click closes modal
     >
       <div
-        className="relative w-[50vw] max-w-md sm:max-w-lg bg-white rounded-2xl shadow-xl overflow-hidden"
+        className="relative w-[90vw] sm:w-[50vw] max-w-md sm:max-w-lg bg-white rounded-2xl shadow-xl overflow-hidden"
         onClick={(e) => e.stopPropagation()} // prevent inner clicks
       >
         {/* Close Button */}

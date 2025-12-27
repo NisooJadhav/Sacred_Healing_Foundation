@@ -51,8 +51,11 @@ export default function StorePage() {
   const [category, setCategory] = useState<string | null>(null);
   const { items } = useCart();
 
-  const categories = useMemo(() => {
-    const set = new Set(products.map((p) => p.category).filter(Boolean));
+  const categories = useMemo<string[]>(() => {
+    // Ensure we only include defined string categories. Use a type guard so TypeScript
+    // knows the resulting array contains only strings (no undefined).
+    const cats = products.map((p) => p.category).filter((x): x is string => Boolean(x));
+    const set = new Set(cats);
     return ["All", ...Array.from(set)];
   }, []);
 

@@ -8,7 +8,7 @@ import BrochureModal from "../app/components/BrochureModal";
 import { CartProvider } from "./context/CartContext";
 
 export const metadata: Metadata = {
-  title: "Sacred Healing Foundation ~ Poonam Thore",
+  title: "Sacred Healing Foundation ~ Poonam Chavan",
   description: "A foundation dedicated to holistic healing and wellness.",
   icons: {
     icon: "/icon.ico",

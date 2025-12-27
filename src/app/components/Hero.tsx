@@ -1,21 +1,76 @@
 "use client";
 
 import Image from "next/image";
+import dynamic from "next/dynamic";
 
-export default function Hero() {
+const StarsBackground = dynamic(
+  () => import("../components/StarsBackground"),
+  { ssr: false }
+);
+
+export default function HeroSection() {
   return (
-    <center className="bg-fuchsia-950">
-    <section className="relative w-[90vw] h-[90svh] overflow-hidden">
-      {/* Hero Image */}
-      <Image
-        src="/hero-bg.png"
-        alt="Hero"
-        fill
-        priority
-        className="object-cover object-bottom"
-        sizes="100vw"
-      />
+    <section className="relative h-[80vh] w-full overflow-hidden flex items-center justify-center">
+      {/* Background image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/bg-hero.png"
+          alt="Background"
+          fill
+          priority
+          className="object-cover"
+        />
+        {/* Black overlay */}
+        <div className="absolute inset-0 bg-black/60" />
+      </div>
+
+      {/* Stars (WebGL) */}
+      <StarsBackground />
+
+      {/* Spiritual light rays - multiple layers for better effect */}
+      <div className="absolute inset-0 z-10 pointer-events-none">
+        {/* Animated rotating glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          <div
+            className="sm:w-[50px] sm:h-[50px] md:w-[800px] md:h-[800px] rounded-full opacity-40 animate-spin"
+            style={{
+              background: 'radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.15) 30%, transparent 60%)',
+              filter: 'blur(40px)',
+              animationDuration: '120s'
+            }}
+          />
+        </div>
+
+        {/* Static center glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          <div
+            className="w-[400px] h-[400px] sm:w-[50px] sm:h-[50px] rounded-full opacity-50"
+            style={{
+              background: 'radial-gradient(circle, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.2) 40%, transparent 70%)',
+              filter: 'blur(40px)'
+            }}
+          />
+        </div>
+      </div>
+
+      {/* Hero content */}
+      <div className="relative z-20 flex flex-col items-center justify-end h-full">
+        <Image
+          src="/hero.png"
+          alt="Hero"
+          width={500}
+          height={500}
+          priority
+          className="drop-shadow-[0_0_70px_rgba(255,255,255,0.4)] sm:w-[320px] sm:h-[320px] md:w-[550px] md:h-[580px]"
+        />
+
+        {/* Quote */}
+        <div className="z-50 w-screen bg-white flex justify-center">
+          <p className="my-4 text-center text-3xl md:text-6xl font-medium text-pink-800 tracking-wide">
+            <b>जहाँ समर्पण है, वहीं उपचार है।</b>
+          </p>
+        </div>
+        </div>
     </section>
-    </center>
   );
 }
