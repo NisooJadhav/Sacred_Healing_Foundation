@@ -217,9 +217,9 @@ export default function Navbar() {
 
                             {/* Right side - Image */}
                             {link.image && (
-                              <div className="w-48 bg-gradient-to-br from-purple-100 to-pink-100 flex items-center justify-center">
+                              <div className="w-48 bg-gradient-to-br from-purple-100 to-lotus-pink flex items-center justify-center">
                                 <div className="relative w-full h-full overflow-hidden shadow-lg">
-                                  <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-pink-600/20"></div>
+                                  <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-lotus-pink-600/20"></div>
                                   <Image
                                     src={link.image}
                                     alt={link.name}
@@ -345,7 +345,7 @@ export default function Navbar() {
                 <Link
                   href="/consult"
                   onClick={() => setOpen(false)}
-                  className="mt-4 text-center rounded-full bg-gradient-to-r from-pink-500 to-purple-600
+                  className="mt-4 text-center rounded-full bg-gradient-to-r from-lotus-pink to-lotus-purple
                   px-6 py-3 text-white font-bold shadow-lg hover:shadow-xl transition-all"
                 >
                   Book Consultation
