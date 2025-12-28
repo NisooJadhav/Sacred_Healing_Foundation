@@ -8,7 +8,7 @@ export default function MyGoal() {
     <section className="w-full bg-lotus-bg py-4">
       <div className="mx-auto max-w-6xl">
         {/* Box */}
-        <div className="relative rounded-3xl bg-lotus-section shadow-lg px-6 sm:px-10 py-12 text-center">
+        <div className="relative rounded-3xl bg-lotus-section shadow-lg px-6 sm:px-10 py-12 text-center mb-5">
           
           {/* Title */}
           <h2 className="text-3xl sm:text-4xl text-lotus-purple mb-8 font-serif">

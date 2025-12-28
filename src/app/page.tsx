@@ -4,6 +4,7 @@ import FreeSessions from "./components/FreeSessions";
 import MyGoal from "./components/MyGoal";
 import BrochureModal from "../app/components/BrochureModal";
 import Loader from "./components/Loader";
+import Divider from "./components/Divider";
 
 export default function HomePage() {
   return (
@@ -12,8 +13,11 @@ export default function HomePage() {
       <BrochureModal />
       <Hero />
       <HomeAbout />
+      <Divider />
       <MyGoal />
+      <Divider />
       <FreeSessions />
+      <Divider />
     </div>
   );
 }

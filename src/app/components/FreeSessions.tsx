@@ -26,7 +26,7 @@ const sessions = [
 
 export default function FreeSessions() {
   return (
-    <section className="w-full bg-lotus-bg py-16 px-6 md:px-12">
+    <section className="w-full bg-lotus-bg px-6 md:px-12 mt-10 pb-5">
       <div className="max-w-7xl mx-auto">
         {/* TITLE */}
         <h2 className="text-3xl md:text-4xl font-serif text-center text-lotus-purple mb-12">
