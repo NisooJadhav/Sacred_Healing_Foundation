@@ -4,11 +4,10 @@ import "./globals.css";
 import Nav from "../app/components/Nav";
 import Footer from "../app/components/Footer";
 import Whatsapp from "../app/components/Whatsapp";
-import BrochureModal from "../app/components/BrochureModal";
 import { CartProvider } from "./context/CartContext";
 
 export const metadata: Metadata = {
-  title: "Sacred Healing Foundation ~ Poonam Chavan",
+  title: "Sacred Healing Foundation ~ Poonam Thore",
   description: "A foundation dedicated to holistic healing and wellness.",
   icons: {
     icon: "/icon.ico",
@@ -33,7 +32,6 @@ export default function RootLayout({
       </head>
       <body>
         <CartProvider>
-          <BrochureModal />
           <Nav />
           <main>{children}</main>
           <Whatsapp />

@@ -6,7 +6,7 @@ export default function AboutPage() {
                 The Sacred Healing Foundation is dedicated to promoting holistic healing and wellness through various programs and initiatives. Our mission is to provide support and resources to individuals seeking physical, emotional, and spiritual healing.
             </p>
             <p>
-                Founded by Poonam Chavan, the foundation focuses on integrating traditional healing practices with modern wellness techniques to create a comprehensive approach to health.
+                Founded by Poonam Thore, the foundation focuses on integrating traditional healing practices with modern wellness techniques to create a comprehensive approach to health.
             </p>
             <h2>Our Programs</h2>
             <ul>

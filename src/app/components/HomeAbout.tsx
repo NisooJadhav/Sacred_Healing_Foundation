@@ -15,7 +15,7 @@ export default function HomeAbout() {
 
           <p className="text-lotus-text text-base md:text-lg text-justify leading-relaxed">
             <strong className="font-semibold text-lotus-text">
-              Poonam Chavan
+              Poonam Thore
             </strong>{" "}
             is a professional Spiritual Healer and Energy Healing Mentor with
             experience in teaching and guiding hundreds of students and clients
@@ -39,7 +39,7 @@ export default function HomeAbout() {
                           rounded-3xl overflow-hidden shadow-sacred bg-lotus-gold/30">
             <Image
               src="/homeabout.png"
-              alt="Poonam Chavan - Reiki Expert"
+              alt="Poonam Thore - Reiki Expert"
               fill
               priority
               className="object-cover"

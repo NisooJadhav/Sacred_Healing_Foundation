@@ -6,7 +6,10 @@ const BrochureModal = () => {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    setOpen(true);
+    const timer = setTimeout(() => {
+      setOpen(true);
+    }, 2000);
+    return () => clearTimeout(timer);
   }, []);
 
   const closeModal = () => {
@@ -18,13 +21,12 @@ const BrochureModal = () => {
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4"
-      onClick={closeModal} // outside click closes modal
+      onClick={closeModal}
     >
       <div
         className="relative w-[90vw] sm:w-[50vw] max-w-md sm:max-w-lg bg-white rounded-2xl shadow-xl overflow-hidden"
-        onClick={(e) => e.stopPropagation()} // prevent inner clicks
+        onClick={(e) => e.stopPropagation()}
       >
-        {/* Close Button */}
         <button
           onClick={closeModal}
           className="absolute top-3 right-3 text-gray-600 hover:text-red-500 text-xl font-bold"
@@ -32,14 +34,12 @@ const BrochureModal = () => {
           ×
         </button>
 
-        {/* Brochure Image */}
         <img
           src="/brochure.png"
           alt="Brochure"
           className="w-full h-auto object-contain"
         />
 
-        {/* Actions */}
         <div className="p-4 flex flex-col sm:flex-row gap-3 justify-between">
           <a
             href="/brochure.png"

@@ -64,12 +64,11 @@ const navLinks = [
     href: "/about",
     hasDropdown: true,
     dropdownItems: [
-      { name: "About Poonam Chavan", href: "/about/poonam" },
+      { name: "About Poonam Thore", href: "/about/poonam" },
       { name: "Testimonials", href: "/about/testimonials" },
-      { name: "Healing Temple", href: "/about/temple" },
       { name: "FAQ's", href: "/about/faqs" },
     ],
-    image: "/poonam-profile.jpg",
+    image: "/homeabout.png",
     description: "Reiki Grand Master",
   },
   {
@@ -102,25 +101,25 @@ export default function Navbar() {
       <div className="bg-lotus-purple h-8 flex items-center overflow-hidden">
         <Marquee speed={50} gradient={false}>
           <span className="text-white text-sm font-medium mx-6">
-            Sacred Healing Foundation ~ Poonam Chavan
+            Sacred Healing Foundation ~ Poonam Thore
           </span>
           <span className="text-yellow-200 text-sm font-semibold mx-8">
             ॥ श्री कृष्ण शरणम् ॥
           </span>
           <span className="text-white text-sm font-medium mx-6">
-            Sacred Healing Foundation ~ Poonam Chavan
+            Sacred Healing Foundation ~ Poonam Thore
           </span>
           <span className="text-yellow-200 text-sm font-semibold mx-8">
             ॥ श्री कृष्ण शरणम् ॥
           </span>
           <span className="text-white text-sm font-medium mx-6">
-            Sacred Healing Foundation ~ Poonam Chavan
+            Sacred Healing Foundation ~ Poonam Thore
           </span>
           <span className="text-yellow-200 text-sm font-semibold mx-8">
             ॥ श्री कृष्ण शरणम् ॥
           </span>
           <span className="text-white text-sm font-medium mx-6">
-            Sacred Healing Foundation ~ Poonam Chavan
+            Sacred Healing Foundation ~ Poonam Thore
           </span>
           <span className="text-yellow-200 text-sm font-semibold mx-8">
             ॥ श्री कृष्ण शरणम् ॥
