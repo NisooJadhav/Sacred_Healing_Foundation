@@ -40,7 +40,7 @@ export default function Contact() {
   };
 
   return (
-    <section className="bg-lotus-bg py-4 pb-15 px-4">
+    <section className="bg-lotus-bg py-4 pb-8 px-4">
       <div className="mx-auto max-w-6xl rounded-3xl bg-lotus-section shadow-sacred p-6 md:p-12 grid lg:grid-cols-2 gap-8 md:gap-10">
         {/* LEFT INFO */}
         <div className="text-lotus-purple space-y-8">

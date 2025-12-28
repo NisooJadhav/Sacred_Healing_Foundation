@@ -6,6 +6,7 @@ import BrochureModal from "../app/components/BrochureModal";
 import Loader from "./components/Loader";
 import Divider from "./components/Divider";
 import Contact from "./components/Contact";
+import Testimonials from "./components/Testimonials";
 
 export default function HomePage() {
   return (
@@ -18,6 +19,8 @@ export default function HomePage() {
       <MyGoal />
       <Divider />
       <FreeSessions />
+      <Divider />
+      <Testimonials />
       <Divider />
       <Contact />
     </div>
