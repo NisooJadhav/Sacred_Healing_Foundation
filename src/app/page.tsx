@@ -5,6 +5,7 @@ import MyGoal from "./components/MyGoal";
 import BrochureModal from "../app/components/BrochureModal";
 import Loader from "./components/Loader";
 import Divider from "./components/Divider";
+import Contact from "./components/Contact";
 
 export default function HomePage() {
   return (
@@ -18,6 +19,7 @@ export default function HomePage() {
       <Divider />
       <FreeSessions />
       <Divider />
+      <Contact />
     </div>
   );
 }
