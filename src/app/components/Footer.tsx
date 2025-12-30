@@ -3,6 +3,13 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default function Footer() {
+  const phoneNumber = '8793877913';
+  const message = encodeURIComponent(
+    'Hi, I would like to book a consultation.'
+  );
+
+  const whatsappLink = `https://wa.me/${phoneNumber}?text=${message}`;
+
   const reikiLinks = [
     { name: "Usui Reiki Level 1 & 2", href: "/reiki/level-1-2" },
     { name: "Usui Reiki Level 3a & 3b", href: "/reiki/level-3" },
@@ -39,7 +46,7 @@ export default function Footer() {
   const quickLinks = [
     { name: "Home", href: "/" },
     { name: "Store", href: "/store" },
-    { name: "Book Consultation", href: "/consult" },
+    { name: "Book Consultation", href: whatsappLink, target: "_blank" },
   ];
 
   return (

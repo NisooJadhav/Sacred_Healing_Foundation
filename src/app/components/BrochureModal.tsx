@@ -6,10 +6,17 @@ const BrochureModal = () => {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setOpen(true);
-    }, 2000);
-    return () => clearTimeout(timer);
+    // Check if modal was already shown
+    const hasSeenModal = localStorage.getItem("brochureModalShown");
+
+    if (!hasSeenModal) {
+      const timer = setTimeout(() => {
+        setOpen(true);
+        localStorage.setItem("brochureModalShown", "true");
+      }, 2000);
+
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   const closeModal = () => {

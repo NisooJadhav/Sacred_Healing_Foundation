@@ -96,7 +96,7 @@ const navLinks = [
     href: "/about",
     hasDropdown: true,
     dropdownItems: [
-      { name: "About Poonam Thore", href: "/about/poonam" },
+      { name: "About Poonam Thore", href: "/about" },
       { name: "Testimonials", href: "/#testimonials" },
       { name: "FAQ's", href: "/about/faqs" },
     ],
@@ -121,6 +121,13 @@ const navLinks = [
 ] as const;
 
 export default function Navbar() {
+    const phoneNumber = '8793877913';
+  const message = encodeURIComponent(
+    'Hi, I would like to book a consultation.'
+  );
+
+  const whatsappLink = `https://wa.me/${phoneNumber}?text=${message}`;
+
   const [open, setOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
@@ -270,10 +277,11 @@ export default function Navbar() {
             {/* RIGHT: CTA */}
             <div className="hidden lg:flex flex-shrink-0 pr-10">
               <Link
-                href="/consult"
+                href={whatsappLink}
                 className="rounded-full bg-gradient-to-r from-lotus-pink to-lotus-purple
                 px-6 py-3 text-white font-bold tracking-wide shadow-lg
                 transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                target="_blank"
               >
                 Book Consultation
               </Link>
@@ -373,10 +381,11 @@ export default function Navbar() {
                   </div>
                 ))}
                 <Link
-                  href="/consult"
+                  href={whatsappLink}
                   onClick={() => setOpen(false)}
                   className="mt-4 text-center rounded-full bg-gradient-to-r from-lotus-pink to-lotus-purple
                   px-6 py-3 text-white font-bold shadow-lg hover:shadow-xl transition-all"
+                  target="_blank"
                 >
                   Book Consultation
                 </Link>
